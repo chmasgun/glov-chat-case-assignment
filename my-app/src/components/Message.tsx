@@ -27,11 +27,12 @@ const Message: React.FC<MessageProps> = ({ message }) => {
     const MessageDiv = styled.div`
         overflow:clip;
         max-width: 75%;
-        text-align:center;
+         
         align-content:center;
         padding: 1rem;
         box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
         border-radius: 1rem; 
+        text-align: left;
         margin-left : ${message[1] ? "0":"auto"} ;
         background-color : ${message[1] ? "rgb(214 211 209);":" rgb(168 162 158);"};
         `;
