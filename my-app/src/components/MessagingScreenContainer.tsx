@@ -7,13 +7,9 @@ type MessagingScreenContainerProps = {
     // Add your props here
     messages: [string, number][]
 };
-
-
-const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ messages }) => {
-
-    // The main messaging part on the right side.
-    // This is the outer div that keeps texting area and messages together
-    const MessagingContainerOuterDiv = styled.div`
+// The main messaging part on the right side.
+// This is the outer div that keeps texting area and messages together
+const MessagingContainerOuterDiv = styled.div`
          
         display:flex;
         flex-direction: column;
@@ -26,8 +22,8 @@ const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ mes
         
         `;
 
-    // This is the messages container
-    const MessagingContainerDiv = styled.div`
+// This is the messages container
+const MessagingContainerDiv = styled.div`
         flex:1;
         display:flex;
         border-radius: 0 1rem 1rem 0; 
@@ -40,7 +36,7 @@ const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ mes
         
     `;
 
-    const MessagingContainerOverflowingDiv = styled.div`
+const MessagingContainerOverflowingDiv = styled.div`
         
         flex:1;
         display:flex;
@@ -54,20 +50,24 @@ const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ mes
             width: 100%;   
         }    
         
-    `; 
-    
-   
+    `;
+
+const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ messages }) => {
+
+
+
+
 
     return (
         <MessagingContainerOuterDiv>
             <MessagingContainerDiv>
                 <MessagingContainerOverflowingDiv>
                     {
-                        messages.map(x => <Message message={x} />)
+                        messages.map((x,i) => <Message key={i} message={x} />)
                     }
                 </MessagingContainerOverflowingDiv>
             </MessagingContainerDiv>
-            
+
             <TextingArea></TextingArea>
 
         </MessagingContainerOuterDiv>
