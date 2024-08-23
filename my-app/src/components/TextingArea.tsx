@@ -33,6 +33,7 @@ const TextingInput = styled.input`
     overflow:clip;
     background-color: rgb(250 250 250);
     border-radius:  1rem; 
+    z-index: 10;
     `;
 
 // Send message button, green colored
@@ -52,24 +53,37 @@ const SendMessage = styled.div`
 
 
 const SuggestionList = styled.span`
+    overflow:clip;
     position: absolute;
     top:0%;
     width:100%;
     background-color: rgb(220 220 220);
     list-style: none;
     padding: 0;
-    transform: translateY(-100%);
+    padding-bottom: 2rem;
+    z-index:0;
+    transform: translateY(calc(-100% + 2rem));
+    border-radius: 1rem 1rem 0 0;
+    border : 1px solid gray
 `;
 
-const SuggestionItem = styled.li<{ highlighted: boolean }>`
-    color: ${(props) => (props.highlighted ? 'gray' : 'black')};
+const SuggestionItem = styled.li<{   }>`
+    color: gray;
     cursor: pointer;
     padding: 0.5rem;
+    border-bottom: 1px solid gray;
+    &:last-child{
+    border-bottom: 0;
+    }
+     &:hover{
+        background-color: rgb(230 235 230);
+        color: #222;
+    }
 `;
 
 const TextingArea: React.FC<TextingAreaProps> = ({ setMessages }) => {
     
-    const [suggestions, setSuggestions] = useState<string[]>(["Hello", "How are you?", "Long time no see!", "How was your day?", "Bye!", "See you later!", "I'll get back to you.", "Call me."]);
+    const [suggestions, setSuggestions] = useState<string[]>(["Hello", "How are you?", "Long time no see!", "How was your day?", "Bye!", "See you later!", "I'll get back to you.", "Call me.", "This is", "I'm tired.","Shall we"]);
 
     const [inputValue, setInputValue] = useState<string>(''); // Initialize input value state as empty
     const [suggestionJustSet, setSuggestionJustSet] = useState<boolean>(false)
@@ -116,12 +130,12 @@ const TextingArea: React.FC<TextingAreaProps> = ({ setMessages }) => {
                     onChange={handleInputChange}
                     placeholder="Type your message..."
                 />
+                {/* suggestion area. Only if there are suggestions */}
                 {filteredSuggestions.length > 0 && (
                     <SuggestionList>
                         {filteredSuggestions.map((suggestion, index) => (
                             <SuggestionItem
                                 key={index}
-                                highlighted={suggestion.toLowerCase().startsWith(inputValue.toLowerCase())}
                                 onClick={() => handleSuggestionClick(suggestion)}
                             >
                                 {suggestion}
