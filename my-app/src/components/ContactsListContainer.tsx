@@ -7,7 +7,6 @@ type ContactListContainerProps = {
 };
 
 // The Contacts div on the left part. Will disappear in small screens
-
 const ContactListDiv = styled.div`
     
    overflow-y:auto;
