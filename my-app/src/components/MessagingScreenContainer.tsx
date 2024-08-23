@@ -5,7 +5,8 @@ import TextingArea from './TextingArea';
 
 type MessagingScreenContainerProps = {
     // Add your props here
-    messages: [string, number][]
+    messages: [string, number][];
+    setMessages: React.Dispatch<React.SetStateAction<[string, number][]>>; // Correct type
 };
 
 // The main messaging part on the right side.
@@ -53,7 +54,7 @@ const MessagingContainerOverflowingDiv = styled.div`
         
     `;
 
-const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ messages }) => {
+const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ messages, setMessages }) => {
 
 
 
@@ -74,7 +75,7 @@ const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ mes
             </MessagingContainerDiv>
 
             {/* text area */}
-            <TextingArea></TextingArea>
+            <TextingArea setMessages={setMessages}></TextingArea>
 
         </MessagingContainerOuterDiv>
     );
