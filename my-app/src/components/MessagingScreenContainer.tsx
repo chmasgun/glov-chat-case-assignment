@@ -28,7 +28,7 @@ const MessagingContainerOuterDiv = styled.div`
 const MessagingContainerDiv = styled.div`
         flex:1;
         display:flex;
-        border-radius: 0 1rem 1rem 0; 
+        border-radius: 1rem; 
         overflow:auto; 
         padding: 1rem;
         background-color: rgb(203 213 225);

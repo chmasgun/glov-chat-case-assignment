@@ -12,6 +12,7 @@ const TextingAreaDiv = styled.div`
     `;
 const TextingAreaDivExtended = styled.div`
     flex:1;
+    min-width: 0px;
     display:flex;
     flex-direction: column;
     position: relative; 
@@ -20,6 +21,7 @@ const TextingAreaDivExtended = styled.div`
 // Actual text are, input
 const TextingInput = styled.input`
     height: 60px;
+    
     flex:1;
     padding: 0 1rem;
     font-size: 1rem;
