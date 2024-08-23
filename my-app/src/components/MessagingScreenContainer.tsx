@@ -7,6 +7,7 @@ type MessagingScreenContainerProps = {
     // Add your props here
     messages: [string, number][]
 };
+
 // The main messaging part on the right side.
 // This is the outer div that keeps texting area and messages together
 const MessagingContainerOuterDiv = styled.div`
@@ -22,7 +23,7 @@ const MessagingContainerOuterDiv = styled.div`
         
         `;
 
-// This is the messages container
+// This is the messages container, that has a fixed height, overflow clip
 const MessagingContainerDiv = styled.div`
         flex:1;
         display:flex;
@@ -35,7 +36,7 @@ const MessagingContainerDiv = styled.div`
         }    
         
     `;
-
+// This is the messages container that overflows, and allows scrolling
 const MessagingContainerOverflowingDiv = styled.div`
         
         flex:1;
@@ -60,14 +61,19 @@ const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ mes
 
     return (
         <MessagingContainerOuterDiv>
+             {/* container fixed height, overflow auto */}
             <MessagingContainerDiv>
+                {/* container variable height, overflows*/}
                 <MessagingContainerOverflowingDiv>
                     {
-                        messages.map((x,i) => <Message key={i} message={x} />)
+                    /* each message*/
+                    messages.map((x,i) => <Message key={i} message={x} />)
                     }
+                   
                 </MessagingContainerOverflowingDiv>
             </MessagingContainerDiv>
 
+            {/* text area */}
             <TextingArea></TextingArea>
 
         </MessagingContainerOuterDiv>

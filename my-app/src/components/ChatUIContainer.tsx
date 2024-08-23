@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import ContactListContainer from './ContactsListContainer';
 import MessagingScreenContainer from './MessagingScreenContainer';
+ 
 
+const messages: [string, number][] =  [["This is the latest message.", 0], ["how are you", 1], ["I'm fine thanks. It's been a long day. How was your day? Was it good? Really curious if this will overflow...", 0], ["how are you", 1], ["I'm fine thanks. It's been a long day. How was your day? Was it good? Really curious if this will overflow...", 0], ["how are you", 1], ["how are you", 1], ["how are you", 1]]
 
 type ChatUIContainerProps = {
 
 };
 
 // The outer container, which changes width value smoothly at 768px
-
 //  adding a fallback to width, in case of clamp not being supported on user's browser
 const ChatUIContainerDiv = styled.div`
     width: 736px;
@@ -34,6 +35,7 @@ const ChatUIInnerContainerDiv = styled.div`
        display:grid;
        grid-template-columns: 3fr 7fr;
        grid-template-rows: minmax(0, 1fr);
+       
        gap: 1rem;
         @media (max-width: 768px) {
             min-width: calc(200% - 0rem);  
@@ -50,12 +52,13 @@ const ChatUIContainer: React.FC<ChatUIContainerProps> = () => {
 
 
 
+
     return (
         <ChatUIContainerDiv>
             <ChatUIInnerContainerDiv>
 
                 <ContactListContainer contactList={["ahmet", "muratcan", "james", "ömer", "b", "c", "a", "b", "c", "a", "b", "c"]}></ContactListContainer>
-                <MessagingScreenContainer messages={[["This is the latest message.", 0], ["how are you", 1], ["I'm fine thanks. It's been a long day. How was your day? Was it good? Really curious if this will overflow...", 0], ["how are you", 1], ["I'm fine thanks. It's been a long day. How was your day? Was it good? Really curious if this will overflow...", 0], ["how are you", 1], ["how are you", 1], ["how are you", 1]]}></MessagingScreenContainer>
+                <MessagingScreenContainer messages={messages}></MessagingScreenContainer>
             </ChatUIInnerContainerDiv>
         </ChatUIContainerDiv>
     );
