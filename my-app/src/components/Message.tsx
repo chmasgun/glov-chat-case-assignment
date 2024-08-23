@@ -26,7 +26,7 @@ const Message: React.FC<MessageProps> = ({ message }) => {
     // Each individual message
     const MessageDiv = styled.div`
         overflow:clip;
-        width:75%;
+        max-width: 75%;
         text-align:center;
         align-content:center;
         padding: 1rem;
