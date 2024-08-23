@@ -50,7 +50,7 @@ const ChatUIContainer: React.FC<ChatUIContainerProps> = () => {
             <ChatUIInnerContainerDiv>
 
                 <ContactListContainer contactList={["ahmet", "muratcan", "james", "ömer", "b", "c", "a", "b", "c", "a", "b", "c"]}></ContactListContainer>
-                <MessagingScreenContainer messages={[ ["how are you", 0], ["I'm fine thanks",1]]}></MessagingScreenContainer>
+                <MessagingScreenContainer messages={[ ["I'm fine thanks",0], ["how are you", 1]]}></MessagingScreenContainer>
             </ChatUIInnerContainerDiv>
         </ChatUIContainerDiv>
     );
