@@ -15,10 +15,10 @@ const Message: React.FC<MessageProps> = ({ message }) => {
         
         display: flex;
         
-        position:relative;
-        
-        min-height: 80px;
-     
+      
+        &:first-child{
+            padding-bottom : 1rem;
+        }
 
         `;
 

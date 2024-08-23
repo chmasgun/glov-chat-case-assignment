@@ -52,7 +52,7 @@ const ChatUIContainer: React.FC<ChatUIContainerProps> = () => {
             <ChatUIInnerContainerDiv>
 
                 <ContactListContainer contactList={["ahmet", "muratcan", "james", "ömer", "b", "c", "a", "b", "c", "a", "b", "c"]}></ContactListContainer>
-                <MessagingScreenContainer messages={[ ["I'm fine thanks. It's been a long day. How was your day? Was it good? Really curious if this will overflow...",0], ["how are you", 1],["I'm fine thanks. It's been a long day. How was your day? Was it good? Really curious if this will overflow...",0], ["how are you", 1],["I'm fine thanks. It's been a long day. How was your day? Was it good? Really curious if this will overflow...",0], ["how are you", 1], ["how are you", 1], ["how are you", 1]]}></MessagingScreenContainer>
+                <MessagingScreenContainer messages={[ ["This is the latest message.",0], ["how are you", 1],["I'm fine thanks. It's been a long day. How was your day? Was it good? Really curious if this will overflow...",0], ["how are you", 1],["I'm fine thanks. It's been a long day. How was your day? Was it good? Really curious if this will overflow...",0], ["how are you", 1], ["how are you", 1], ["how are you", 1]]}></MessagingScreenContainer>
             </ChatUIInnerContainerDiv>
         </ChatUIContainerDiv>
     );
