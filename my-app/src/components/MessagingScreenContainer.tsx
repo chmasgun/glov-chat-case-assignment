@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Message from './Message';
-
+import TextingArea from './TextingArea';
 
 type MessagingScreenContainerProps = {
     // Add your props here
@@ -56,13 +56,7 @@ const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ mes
         
     `; 
     
-    // This is the text area (will change, need details)
-    const TextingArea = styled.div`
-        height: 60px;
-        overflow:clip;
-        background-color: rgb(250 250 250);
-        border-radius:  1rem; 
-        `;
+   
 
     return (
         <MessagingContainerOuterDiv>
