@@ -33,6 +33,7 @@ const ChatUIContainer: React.FC<ChatUIContainerProps> = () => {
        padding: 1rem;
        display:grid;
        grid-template-columns: 3fr 7fr;
+       grid-template-rows: minmax(0, 1fr);
        gap: 1rem;
         @media (max-width: 768px) {
             min-width: calc(200% - 2rem);  
