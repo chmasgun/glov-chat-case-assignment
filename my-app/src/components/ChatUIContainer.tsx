@@ -36,7 +36,8 @@ const ChatUIInnerContainerDiv = styled.div`
        grid-template-rows: minmax(0, 1fr);
        gap: 1rem;
         @media (max-width: 768px) {
-            min-width: calc(200% - 2rem);  
+            min-width: calc(200% - 0rem);  
+            transform: translateX(-50%);
             gap: 2rem; 
             grid-template-columns: repeat(2, minmax(0, 1fr));
             }    
