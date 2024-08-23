@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 type MessagingScreenContainerProps = {
     // Add your props here
-    messages: string[]
+    messages: [string, number][]
 };
 
 
