@@ -53,7 +53,28 @@ const MessagingContainerOverflowingDiv = styled.div`
         }    
         
     `;
+// Messaging header container
+const MessagingHeader = styled.div`
+        height:30px;
+        display:flex;
+       
+    `;
 
+// The back button inside the header, visible only on small screens
+const BackButton = styled.button`
+        width:50px;
+        display:none;
+        background-color: lightgray;  
+        border-radius: 0.5rem;
+        @media (max-width: 768px) {
+           display:block;  
+        }  
+    `
+// Messaging contact div
+const MessagingContactName = styled.div`
+         flex:1;
+         align-content:center;
+    `
 const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ messages, setMessages }) => {
 
 
@@ -62,6 +83,12 @@ const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ mes
 
     return (
         <MessagingContainerOuterDiv>
+            {/* top header*/}
+            <MessagingHeader > 
+                <BackButton>{'<'}</BackButton>
+                <MessagingContactName>Muratcan Asgun</MessagingContactName>
+            </MessagingHeader>
+            
              {/* container fixed height, overflow auto */}
             <MessagingContainerDiv>
                 {/* container variable height, overflows*/}
