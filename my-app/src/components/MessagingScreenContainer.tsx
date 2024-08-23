@@ -29,8 +29,11 @@ const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ mes
     // This is the messages container
     const MessagingContainerDiv = styled.div`
         flex:1;
-         border-radius: 0 1rem 1rem 0; 
+        display:flex;
+        border-radius: 0 1rem 1rem 0; 
         overflow:auto; 
+        padding: 1rem;
+        background-color: rgb(203 213 225);
         @media (max-width: 768px) {
             width: 100%;   
         }    
@@ -39,13 +42,14 @@ const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ mes
 
     const MessagingContainerOverflowingDiv = styled.div`
         
-        
+        flex:1;
         display:flex;
         flex-direction: column-reverse;
-        background-color: rgb(203 213 225);
+        
         border-radius: 1rem;
-        padding: 1rem;
-         
+        
+        gap: 1rem;
+        justify-content: flex-end;
         @media (max-width: 768px) {
             width: 100%;   
         }    
@@ -69,6 +73,7 @@ const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ mes
                     }
                 </MessagingContainerOverflowingDiv>
             </MessagingContainerDiv>
+            
             <TextingArea></TextingArea>
 
         </MessagingContainerOuterDiv>
