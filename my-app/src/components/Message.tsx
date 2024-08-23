@@ -17,8 +17,9 @@ const MessageContainerDiv = styled.div`
         `;
 
 
-        
+
 // Each individual message
+// wraps very long messages. Very long words are also wrapped with word-break
 const MessageDiv = styled.div<{ $sender?: number }>`
     overflow:clip;
     max-width: 75%;
@@ -27,6 +28,8 @@ const MessageDiv = styled.div<{ $sender?: number }>`
     padding: 1rem;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
     border-radius: 1rem; 
+    text-wrap: wrap;
+    word-break: break-word;
     text-align: left;
     margin-left : ${(props) => (props.$sender ? '0' : 'auto')} ;
     background-color : ${(props) => (props.$sender ? 'rgb(214, 211, 209)' : 'rgb(168, 162, 158)')};

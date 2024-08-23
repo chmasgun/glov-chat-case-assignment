@@ -30,7 +30,7 @@ const ContactListContainer: React.FC<ContactListContainerProps> = ({ contactList
     return (
         <ContactListDiv>
             {
-                contactList.map((x,i) => <div key={i} style={{ height: "60px" }}>{x}</div>)
+                contactList.map((x,i) => <div key={i} style={{ height: "60px" , alignContent:"center" }}>{x}</div>)
             }
         </ContactListDiv>
     );
