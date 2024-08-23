@@ -12,8 +12,10 @@ const ChatUIContainer: React.FC<ChatUIContainerProps> = () => {
 
     // The outer container, which changes width value smoothly at 768px
 
+    //  adding a fallback to width, in case of clamp not being supported on user's browser
     const ChatUIContainerDiv = styled.div`
     width: 736px;
+    width: clamp(736px, 80% ,1024px);
     height: min(80vh, 600px);
     background-color: rgb(226 232 240);
     border-radius: 1rem; 
