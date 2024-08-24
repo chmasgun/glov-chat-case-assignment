@@ -3,7 +3,9 @@ import styled from 'styled-components';
 
 type ContactListContainerProps = {
     // Add your props here
-    contactList: string[]
+    contactList: string[];
+    selectedContact: string;
+    setSelectedContact : React.Dispatch<React.SetStateAction<string>>;
 };
 
 // The Contacts div on the left part. Will disappear in small screens
@@ -21,16 +23,16 @@ const ContactListDiv = styled.div`
     
  `;
 
-const ContactListContainer: React.FC<ContactListContainerProps> = ({ contactList }) => {
+const ContactListContainer: React.FC<ContactListContainerProps> = ({ contactList, selectedContact, setSelectedContact }) => {
 
-
+    
 
 
 
     return (
         <ContactListDiv>
             {
-                contactList.map((x,i) => <div key={i} style={{ height: "60px" , alignContent:"center" }}>{x}</div>)
+                contactList.map((x,i) => <div key={i} style={{ height: "60px" , alignContent:"center" }} onClick={() => setSelectedContact(x)} >{x}</div>)
             }
         </ContactListDiv>
     );
