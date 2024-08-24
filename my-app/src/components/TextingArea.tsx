@@ -135,11 +135,12 @@ const TextingArea: React.FC<TextingAreaProps> = ({ setMessages, selectedContact 
                         </ComboBoxList>
                     )
                 }
-                {/* Image area, a placeholder div for loading and images*/}
+                {/* Image area, a placeholder div for loading, error message if any, and images*/}
                 {
                     imageBoxOpen && (
                         <ComboBoxList>
                             {
+                                error ? <div>An error occurred, please try again. {error}</div> : 
                                 loading ? <PlaceholderDiv ></PlaceholderDiv>:
                                 <img src={imageData || undefined} alt="Fetched Image" />
                             }

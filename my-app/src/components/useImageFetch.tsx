@@ -20,6 +20,7 @@ function useImageFetch(imageInput:number) {
         setLoading(false);
       }
     }
+    setError(null)
     setLoading(true);
     fetchImage();
   }, [imageInput]);
