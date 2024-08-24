@@ -12,7 +12,7 @@ type TextingAreaProps = {
 
 const TextingArea: React.FC<TextingAreaProps> = ({ setMessages, selectedContact }) => {
 
-    const [suggestions, setSuggestions] = useState<string[]>(["Hello", "How are you?", "Long time no see!", "How was your day?", "Bye!", "See you later!", "I'll get back to you.", "Call me.", "This is", "I'm tired.", "Shall we", "Happy birthday to you!"]);
+    const [suggestions, setSuggestions] = useState<string[]>(["Hello", "How are you?", "Long time no see!", "How was your day?", "Bye!", "See you later!", "I'll get back to you.", "Call me.", "This is", "I'm tired.", "Shall we", "Happy birthday to you!", "Sorry!", "How's it going?"]);
     const comboBoxOptions = ["I'm busy", "How are you?", "In a meeting", "Let's talk later", "See you!"]
 
     const [inputValue, setInputValue] = useState<string>(''); // Initialize input value state as empty
@@ -46,6 +46,10 @@ const TextingArea: React.FC<TextingAreaProps> = ({ setMessages, selectedContact 
         // Enter button press for sending, in addition to send button
         if (event.key === 'Enter') {
             handleMessageSend();
+        // Tab button to take the first auto-complete suggestion as the new input value
+        }if (event.key === 'Tab') {
+            event.preventDefault() // without this line, the input value gets out of focus, the user cannot click Enter button subsequently
+            handleSuggestionClick(filteredSuggestions[0]);
         }
     };
 
@@ -58,7 +62,7 @@ const TextingArea: React.FC<TextingAreaProps> = ({ setMessages, selectedContact 
     const filteredSuggestions = suggestions.filter((suggestion) =>
     (!suggestionJustSet && // if suggestion is just clicked, we should not show it again
         inputValue.length > 1 && // if the user typed in at least two characters, suggestions might appear
-        suggestion.toLowerCase().includes(inputValue.toLowerCase()))
+        suggestion.toLowerCase().startsWith(inputValue.toLowerCase()))
     );
 
 
