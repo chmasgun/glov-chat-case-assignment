@@ -106,5 +106,11 @@ const ComboBoxItem = styled.li`
     }
 `;
 
+const PlaceholderDiv = styled.div`
+    width: 150px;
+    height: 150px;
+    background: gray;
+    margin: auto;
+`;
 
-export {TextingAreaDiv, TextingAreaDivExtended, TextingInput, SendMessage, SuggestionList, SuggestionItem, ComboBoxList, ComboBoxItem}
+export {TextingAreaDiv, TextingAreaDivExtended, TextingInput, SendMessage, SuggestionList, SuggestionItem, ComboBoxList, ComboBoxItem, PlaceholderDiv}
