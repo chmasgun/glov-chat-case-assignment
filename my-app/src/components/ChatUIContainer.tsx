@@ -4,7 +4,8 @@ import ContactListContainer from './ContactsListContainer';
 import MessagingScreenContainer from './MessagingScreenContainer';
  
 
-const messagesInit: [string, number][] =  [["This is the latest message.", 0], ["how are you", 1], ["I'm fine thanks. It's been a long day. How was your day? Was it good? Really curious if this will overflow...", 0], ["how are you", 1], ["I'm fine thanks. It's been a long day. How was your day? Was it good? Really curious if this will overflow...", 0], ["how are you", 1], ["how are you", 1], ["how are you", 1]]
+const messagesInit:  Record<string, [string, number][]> =  {
+    "Muratcan Aşgün": [["This is the latest message.", 0], ["how are you", 1], ["I'm fine thanks. It's been a long day. How was your day? Was it good? Really curious if this will overflow...", 0], ["how are you", 1], ["I'm fine thanks. It's been a long day. How was your day? Was it good? Really curious if this will overflow...", 0], ["how are you", 1], ["how are you", 1], ["how are you", 1]]}
 
 type ChatUIContainerProps = {
 
@@ -50,7 +51,7 @@ const ChatUIContainer: React.FC<ChatUIContainerProps> = () => {
 
 
     const [messages, setMessages]= useState(messagesInit)
-
+    const [selectedContact, setSelectedContact] = useState<string>("Muratcan Aşgün")
 
 
 
@@ -59,7 +60,7 @@ const ChatUIContainer: React.FC<ChatUIContainerProps> = () => {
             <ChatUIInnerContainerDiv>
 
                 <ContactListContainer contactList={["Ahmet Yetkin", "Muratcan Aşgün", "King James","Joe Biden"]}></ContactListContainer>
-                <MessagingScreenContainer messages={messages} setMessages={setMessages}></MessagingScreenContainer>
+                <MessagingScreenContainer messages={messages[selectedContact]} setMessages={setMessages} selectedContact={selectedContact}></MessagingScreenContainer>
             </ChatUIInnerContainerDiv>
         </ChatUIContainerDiv>
     );

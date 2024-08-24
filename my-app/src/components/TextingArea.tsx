@@ -3,13 +3,13 @@ import {TextingAreaDiv, TextingAreaDivExtended, TextingInput, SendMessage, Sugge
 
 type TextingAreaProps = {
     // Add your props here
-    setMessages: React.Dispatch<React.SetStateAction<[string, number][]>>;
-
+    setMessages: React.Dispatch<React.SetStateAction<Record<string, [string, number][]>>>;
+    selectedContact: string;
 };
 
 
 
-const TextingArea: React.FC<TextingAreaProps> = ({ setMessages }) => {
+const TextingArea: React.FC<TextingAreaProps> = ({ setMessages, selectedContact }) => {
     
     const [suggestions, setSuggestions] = useState<string[]>(["Hello", "How are you?", "Long time no see!", "How was your day?", "Bye!", "See you later!", "I'll get back to you.", "Call me.", "This is", "I'm tired.","Shall we", "Happy birthday to you!"]);
     const comboBoxOptions = ["I'm busy", "How are you?", "In a meeting", "Let's talk later", "See you!"]
@@ -27,7 +27,10 @@ const TextingArea: React.FC<TextingAreaProps> = ({ setMessages }) => {
 
     const handleMessageSend = () => {
         // Concatenates the new messages with the previous messages list. Resets the input
-        setMessages((currentMessages) => [[inputValue, 0], ...currentMessages]);
+        setMessages((currentMessages) => {
+            currentMessages[selectedContact] = [[inputValue, 0], ...currentMessages[selectedContact]] 
+            return {...currentMessages}
+        });
         setInputValue('')
     };
 
@@ -60,7 +63,10 @@ const TextingArea: React.FC<TextingAreaProps> = ({ setMessages }) => {
     const handleComboBoxClick = (boxItem: string) => {
         // Very similar to handleMessageSend, only difference is that I close combo box
         // I had to make this a separate function because I need boxItem as input.
-        setMessages((currentMessages) => [[boxItem, 0], ...currentMessages]);
+        setMessages((currentMessages) => {
+            currentMessages[selectedContact] = [[boxItem, 0], ...currentMessages[selectedContact]] 
+            return {...currentMessages}
+        });
         setInputValue('')
         setComboBoxOpen(false)
     };

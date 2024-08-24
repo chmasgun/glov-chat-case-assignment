@@ -6,7 +6,8 @@ import TextingArea from './TextingArea';
 type MessagingScreenContainerProps = {
     // Add your props here
     messages: [string, number][];
-    setMessages: React.Dispatch<React.SetStateAction<[string, number][]>>; // Correct type
+    setMessages: React.Dispatch<React.SetStateAction<Record<string, [string, number][]>>>;  
+    selectedContact : string;
 };
 
 // The main messaging part on the right side.
@@ -75,7 +76,7 @@ const MessagingContactName = styled.div`
          flex:1;
          align-content:center;
     `
-const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ messages, setMessages }) => {
+const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ messages, setMessages, selectedContact }) => {
 
     const messagingContainerRef = useRef<HTMLDivElement>(null)
 
@@ -108,7 +109,7 @@ const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ mes
             </MessagingContainerDiv>
 
             {/* text area */}
-            <TextingArea setMessages={setMessages}></TextingArea>
+            <TextingArea setMessages={setMessages} selectedContact={selectedContact}></TextingArea>
 
         </MessagingContainerOuterDiv>
     );
