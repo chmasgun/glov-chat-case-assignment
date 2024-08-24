@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import Message from './Message';
 import TextingArea from './TextingArea';
@@ -77,8 +77,14 @@ const MessagingContactName = styled.div`
     `
 const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ messages, setMessages }) => {
 
+    const messagingContainerRef = useRef<HTMLDivElement>(null)
 
-
+    useEffect(() => {
+        // Scroll to the bottom whenever messages change
+        if (messagingContainerRef.current) {
+          messagingContainerRef.current.scrollTop = messagingContainerRef.current.scrollHeight;
+        }
+      }, [messages]);
 
 
     return (
@@ -90,7 +96,7 @@ const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ mes
             </MessagingHeader>
             
              {/* container fixed height, overflow auto */}
-            <MessagingContainerDiv>
+            <MessagingContainerDiv ref={messagingContainerRef}>
                 {/* container variable height, overflows*/}
                 <MessagingContainerOverflowingDiv>
                     {
