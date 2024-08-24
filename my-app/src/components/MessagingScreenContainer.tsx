@@ -93,7 +93,7 @@ const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ mes
             {/* top header*/}
             <MessagingHeader > 
                 <BackButton>{'<'}</BackButton>
-                <MessagingContactName>Muratcan Asgun</MessagingContactName>
+                <MessagingContactName>{selectedContact}</MessagingContactName>
             </MessagingHeader>
             
              {/* container fixed height, overflow auto */}
