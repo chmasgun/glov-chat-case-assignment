@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import ContactListContainer from './ContactsListContainer';
 import MessagingScreenContainer from './MessagingScreenContainer';
- 
 
-const messagesInit:  Record<string, [string, number][]> =  {
+const messagesInit: Record<string, [string, number][]> = {
     "Muratcan Aşgün": [["This is the latest message.", 0], ["how are you", 1], ["I'm fine thanks. It's been a long day. How was your day? Was it good? Really curious if this will overflow...", 0], ["how are you", 1], ["I'm fine thanks. It's been a long day. How was your day? Was it good? Really curious if this will overflow...", 0], ["how are you", 1], ["how are you", 1], ["how are you", 1]]
-    , "Ahmet Yetkin": []
-    , "King James": []
-    , "Joe Biden": []
+    , "Ahmet Yetkin": [["Merhaba, kimsiniz?", 0], ["Merhaba", 1]]
+    , "King James": [["We really appreciate your effort.", 0], ["Congratulations on your hard work!", 0], ["Hey man wassup, I'm still playing for a championship ring!", 1]]
+    , "Joe Biden": [["GO KAMALA GO!", 1]]
     
 }
 

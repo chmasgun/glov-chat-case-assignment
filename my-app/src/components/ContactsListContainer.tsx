@@ -26,20 +26,25 @@ const ContactListDiv = styled.div`
 
 // Each individual contact card
 const ContactDiv = styled.div`
-    
-   margin: 0.5rem ;
-   background-color: rgb(203 213 235);
-   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-   border-bottom: 1px solid gray;
-   transition: border 0.3s,background-color 0.3s;
-   border-radius :   0.5rem 0.5rem 0 0;
-   cursor:pointer;
+    height: 60px;
+    align-content: center;
+    margin: 0.5rem ;
+    padding: 0 0.5rem ;
+    background-color: rgb(223 223 225);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    border-bottom: 1px solid gray;
+    transition: border 0.3s,background-color 0.3s, box-shadow 0.3s;
+    border-radius :   0.5rem 0.5rem 0 0;
+    cursor:pointer;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
     &:hover{
         border-bottom: 1px solid limegreen;
-        background-color: rgb(208 223 240);
+        background-color: rgb(208 233 220);
         box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     }
-    
+
  `;
 const ContactListContainer: React.FC<ContactListContainerProps> = ({ contactList, selectedContact, setSelectedContact, setMobileContactOn}) => { //, setMobileContactOn 
 
@@ -54,7 +59,7 @@ const ContactListContainer: React.FC<ContactListContainerProps> = ({ contactList
     return (
         <ContactListDiv>
             {
-                contactList.map((x, i) => <ContactDiv key={i} style={{ height: "60px", alignContent: "center" }} onClick={() => handleContactClick(x) } >{x}</ContactDiv>)
+                contactList.map((x, i) => <ContactDiv key={i} onClick={() => handleContactClick(x) } >{x}</ContactDiv>)
             }
         </ContactListDiv>
     );

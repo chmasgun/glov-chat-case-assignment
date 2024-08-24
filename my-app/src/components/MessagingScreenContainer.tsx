@@ -19,7 +19,7 @@ const MessagingContainerOuterDiv = styled.div`
         flex-direction: column;
         border-radius: 0 1rem 1rem 0; 
         overflow:clip; 
-        gap: 1rem;
+        gap: 0.75rem;
         @media (max-width: 768px) {
             width: 100%;   
             }    
@@ -68,6 +68,8 @@ const BackButton = styled.button`
         display:none;
         background-color: lightgray;  
         border-radius: 0.5rem;
+        cursor: pointer;
+        border: 1px solid gray;
         @media (max-width: 768px) {
            display:block;  
         }  
@@ -76,6 +78,10 @@ const BackButton = styled.button`
 const MessagingContactName = styled.div`
          flex:1;
          align-content:center;
+         text-wrap: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        padding: 0 1rem;
     `
 const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ messages, setMessages, selectedContact, setMobileContactOn }) => {
 
