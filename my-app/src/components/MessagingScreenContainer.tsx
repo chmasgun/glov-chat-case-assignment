@@ -116,7 +116,7 @@ const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ mes
             </MessagingContainerDiv>
 
             {/* text area */}
-            <TextingArea setMessages={setMessages} selectedContact={selectedContact}></TextingArea>
+            <TextingArea key={selectedContact} setMessages={setMessages} selectedContact={selectedContact}></TextingArea>
 
         </MessagingContainerOuterDiv>
     );
