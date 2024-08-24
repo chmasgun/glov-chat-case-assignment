@@ -2,6 +2,7 @@
   text-align: center;
   display: flex;
   min-height: 100vh;
+  min-height: 100svh;
   justify-content: center;
   align-items: center;
   padding: 1rem;

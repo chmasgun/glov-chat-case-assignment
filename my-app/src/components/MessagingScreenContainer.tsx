@@ -34,6 +34,7 @@ const MessagingContainerDiv = styled.div`
         overflow:auto; 
         padding: 1rem;
         background-color: rgb(203 213 225);
+        box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.15);
         @media (max-width: 768px) {
             width: 100%;   
         }    
