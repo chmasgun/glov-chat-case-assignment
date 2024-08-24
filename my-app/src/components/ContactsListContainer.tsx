@@ -5,7 +5,8 @@ type ContactListContainerProps = {
     // Add your props here
     contactList: string[];
     selectedContact: string;
-    setSelectedContact : React.Dispatch<React.SetStateAction<string>>;
+    setSelectedContact: React.Dispatch<React.SetStateAction<string>>;
+    setMobileContactOn: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 // The Contacts div on the left part. Will disappear in small screens
@@ -40,16 +41,20 @@ const ContactDiv = styled.div`
     }
     
  `;
-const ContactListContainer: React.FC<ContactListContainerProps> = ({ contactList, selectedContact, setSelectedContact }) => {
+const ContactListContainer: React.FC<ContactListContainerProps> = ({ contactList, selectedContact, setSelectedContact, setMobileContactOn}) => { //, setMobileContactOn 
 
-    
+
+    const handleContactClick = (contactName : string) => {
+        setSelectedContact(contactName)
+        setMobileContactOn(false) // switch to the messaging UI
+    }
 
 
 
     return (
         <ContactListDiv>
             {
-                contactList.map((x,i) => <ContactDiv key={i} style={{ height: "60px" , alignContent:"center" }} onClick={() => setSelectedContact(x)} >{x}</ContactDiv>)
+                contactList.map((x, i) => <ContactDiv key={i} style={{ height: "60px", alignContent: "center" }} onClick={() => handleContactClick(x) } >{x}</ContactDiv>)
             }
         </ContactListDiv>
     );

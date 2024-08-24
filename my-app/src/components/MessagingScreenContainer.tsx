@@ -8,6 +8,7 @@ type MessagingScreenContainerProps = {
     messages: [string, number][];
     setMessages: React.Dispatch<React.SetStateAction<Record<string, [string, number][]>>>;  
     selectedContact : string;
+    setMobileContactOn: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 // The main messaging part on the right side.
@@ -76,7 +77,7 @@ const MessagingContactName = styled.div`
          flex:1;
          align-content:center;
     `
-const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ messages, setMessages, selectedContact }) => {
+const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ messages, setMessages, selectedContact, setMobileContactOn }) => {
 
     const messagingContainerRef = useRef<HTMLDivElement>(null)
 
@@ -92,7 +93,7 @@ const MessagingScreenContainer: React.FC<MessagingScreenContainerProps> = ({ mes
         <MessagingContainerOuterDiv>
             {/* top header*/}
             <MessagingHeader > 
-                <BackButton>{'<'}</BackButton>
+                <BackButton onClick={() => setMobileContactOn(true)}>{'<'}</BackButton>
                 <MessagingContactName>{selectedContact}</MessagingContactName>
             </MessagingHeader>
             

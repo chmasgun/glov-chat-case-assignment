@@ -12,8 +12,10 @@ const messagesInit:  Record<string, [string, number][]> =  {
     
 }
 
-type ChatUIContainerProps = {
+const contactList = Object.keys(messagesInit)
 
+type ChatUIContainerProps = {
+    
 };
 
 // The outer container, which changes width value smoothly at 768px
@@ -35,17 +37,17 @@ const ChatUIContainerDiv = styled.div`
 
 // The inner container, which handles the (future) sliding of the Contacts-Messages. Transition will be applied.
 // Uses grid structure. On a large width, 30% of contacts should be fine. For smaller screens, they becomes equal, making them the same width of their parents.
-const ChatUIInnerContainerDiv = styled.div`
+const ChatUIInnerContainerDiv = styled.div<{ $atMessageUI?: boolean }>`
        width: 100%; 
        padding: 1rem;
        display:grid;
        grid-template-columns: 3fr 7fr;
        grid-template-rows: minmax(0, 1fr);
-       
+       transition: transform 0.4s;
        gap: 1rem;
         @media (max-width: 768px) {
             min-width: calc(200% - 0rem);  
-            transform: translateX(-50%);
+            transform: translateX(${(props) => (props.$atMessageUI ? '0%' : '-50%')});
             gap: 2rem; 
             grid-template-columns: repeat(2, minmax(0, 1fr));
             }    
@@ -55,17 +57,26 @@ const ChatUIInnerContainerDiv = styled.div`
 const ChatUIContainer: React.FC<ChatUIContainerProps> = () => {
 
 
-    const [messages, setMessages]= useState(messagesInit)
+    const [messages, setMessages] = useState(messagesInit)
     const [selectedContact, setSelectedContact] = useState<string>("Muratcan Aşgün")
-
+    const [mobileContactOn, setMobileContactOn] = useState<boolean>(true)
 
 
     return (
         <ChatUIContainerDiv>
-            <ChatUIInnerContainerDiv>
+            <ChatUIInnerContainerDiv $atMessageUI={mobileContactOn}>
 
-                <ContactListContainer contactList={["Ahmet Yetkin", "Muratcan Aşgün", "King James","Joe Biden"]} selectedContact={selectedContact} setSelectedContact={setSelectedContact}></ContactListContainer>
-                <MessagingScreenContainer messages={messages[selectedContact]} setMessages={setMessages} selectedContact={selectedContact}></MessagingScreenContainer>
+                <ContactListContainer
+                    contactList={contactList}
+                    selectedContact={selectedContact}
+                    setSelectedContact={setSelectedContact}
+                    setMobileContactOn={setMobileContactOn}></ContactListContainer>
+
+                <MessagingScreenContainer
+                    messages={messages[selectedContact]}
+                    setMessages={setMessages}
+                    selectedContact={selectedContact}
+                    setMobileContactOn={setMobileContactOn}></MessagingScreenContainer>
             </ChatUIInnerContainerDiv>
         </ChatUIContainerDiv>
     );
