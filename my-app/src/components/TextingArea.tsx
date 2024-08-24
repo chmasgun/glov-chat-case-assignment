@@ -75,6 +75,7 @@ const TextingArea: React.FC<TextingAreaProps> = ({ setMessages }) => {
                     type="text"
                     value={inputValue}
                     onChange={handleInputChange}
+                    onKeyDown={handleKeyPress}
                     placeholder="Type your message..."
                 />
                 {/* Autocomplete suggestion area. Only if there are suggestions */}
