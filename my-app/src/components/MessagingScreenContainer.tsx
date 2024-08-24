@@ -39,6 +39,15 @@ const MessagingContainerDiv = styled.div`
             width: 100%;   
         }    
         
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+        &::-webkit-scrollbar-button {
+           height: 0.5rem;
+        }&::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 1rem;  
+        }
     `;
 // This is the messages container that overflows, and allows scrolling
 const MessagingContainerOverflowingDiv = styled.div`

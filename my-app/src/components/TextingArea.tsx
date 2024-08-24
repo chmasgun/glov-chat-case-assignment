@@ -93,7 +93,7 @@ const TextingArea: React.FC<TextingAreaProps> = ({ setMessages, selectedContact 
         setComboBoxOpen(false)
     };
 
-    console.log(loading)
+     
     return (
 
         <TextingAreaDiv>

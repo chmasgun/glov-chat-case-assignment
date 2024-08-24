@@ -106,6 +106,7 @@ const ComboBoxItem = styled.li`
     }
 `;
 
+// Placeholder for image loading state
 const PlaceholderDiv = styled.div`
     width: 150px;
     height: 150px;

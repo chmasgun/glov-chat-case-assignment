@@ -21,7 +21,15 @@ const ContactListDiv = styled.div`
    @media (max-width: 768px) {
        width: 100%;   
      }    
-    
+     &::-webkit-scrollbar {
+            width: 8px;
+        }
+        &::-webkit-scrollbar-button {
+           height: 0.5rem;
+        }&::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 1rem;  
+        }
  `;
 
 // Each individual contact card
